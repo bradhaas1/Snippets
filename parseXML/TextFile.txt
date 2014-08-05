@@ -1,0 +1,12 @@
+﻿working
+http://edp.nbcnews.com/rendering/apiproxy?url=http%3A%2F%2Fcontent.cim.comcast.net%2Fcms%2Fdata%2Fpartner%2Fnbc%2Frss%2Fheadlines.xml&jsoncallback=jQuery111105736661276314408_1406130681367&_=1406130681368
+
+http://edp.nbcnews.com/rendering/apiproxy?url=http%3A%2F%2Fcontent.cim.comcast.net%2Fcms%2Fdata%2Fpartner%2Fnbc%2Frss%2Fheadlines.xml&jsoncallback=jQuery111105393657793756574_1406130777464&_=1406130777465
+
+http://edp.nbcnews.com/rendering/apiproxy?url=http%3A%2F%2Fcontent.cim.comcast.net%2Fcms%2Fdata%2Fpartner%2Fnbc%2Frss%2Fheadlines.xml&jsoncallback=jQuery111106191413169726729_1406130821190&_=1406130821191
+
+
+
+http://edp.nbcnews.com/rendering/apiproxy?url=http%3A%2F%2Fcontent.cim.comcast.net%2Fcms%2Fdata%2Fpartner%2Fnbc%2Frss%2Fheadlines.xml&jsoncallback=jQuery1111049266816838644445_1406136248344&_=1406136248345
+
+window.location.href="http://edp.nbcnews.com/rendering/apiproxy?url=http%3A%2F%2Fcontent.cim.comcast.net%2Fcms%2Fdata%2Fpartner%2Fnbc%2Frss%2Fheadlines.xml&jsoncallback=";
