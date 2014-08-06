@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="http://mps.nbcnews.com/request/component/nbcnews?name=uxads_container.css">
+
+<iframe style="display:none;" id="uxads-placeholder-init" src="about:blank" width="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+
+<script>
+(function(document, initParams) {
+  var jquerySrc = '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
+      jqueryScript;
+
+  function init() {
+    var loadScriptSrc = 'http://mps.nbcnews.com/request/component/nbcnews?name=uxads_container.js',
+        $container = $('#uxads-placeholder-init'),
+        emberCanonical = '{{viewCanonicalUrl}}';
+
+    $container.removeAttr('id');
+    $.getScript(loadScriptSrc, function() {
+      uxads.containerInit($container, emberCanonical, initParams);
+    });
+  };
+
+  // Detect jQuery, import if not detected
+  if (typeof jQuery === 'undefined') {
+    jqueryScript = document.createElement('script');
+    jqueryScript.src = jquerySrc;
+    jqueryScript.addEventListener('load', init);
+    document.getElementsByTagName('body')[0].appendChild(jqueryScript);
+    return;
+  }
+  init();
+}(document, {
+  // Initialization parameters for UX Ads library
+  'placement': 'belowarticle',
+  'product': 'taboola'
+}));
+</script>

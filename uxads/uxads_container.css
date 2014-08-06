@@ -1,0 +1,10 @@
+/* NBC News - Taboola - Below Article */
+
+.uxads-container-taboola-belowarticle {
+  height: 290px;
+}
+@media only screen and (max-width:1024px) {
+  .uxads-container-taboola-belowarticle {
+    height: 360px;
+  }
+}
