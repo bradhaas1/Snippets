@@ -57,7 +57,7 @@ var uxads = (function(uxads, document) {
     if (initParams.hostname === 'www.nbcnews.com' || 'sys10-epsilon.nbcnews.com' &&
         initParams.product === 'taboola' &&
         initParams.placement === 'belowarticle') {
-      adModuleSrc = 'http://mps.nbcnews.com/request/component/nbcnews?name=taboola_belowarticle.js';
+      adModuleSrc = './taboola_belowarticle.js';
     }
 
     if (adModuleSrc) {
@@ -125,7 +125,7 @@ var uxads = (function(uxads, document) {
   function jqueryLoaded() {
     // shortcuts jQuery as local variable for performance
     $ = window.jQuery;
-    return $.getScript('http://mps.nbcnews.com/request/component/nbcnews?name=uxads_jquery_deparam.js', deparamLoaded);
+    return $.getScript('./uxads_jquery_deparam.js', deparamLoaded);
   }
 
   // Asynchronous jQuery loader

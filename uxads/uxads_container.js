@@ -1,19 +1,28 @@
 var uxads = (function(uxads, $) {
-  uxads.ads = uxads.ads || [];
+	uxads.ads = uxads.ads || [];
+	console.log("usads.ads is array: " + Array.isArray(uxads.ads));
+
   uxads.containerInit = uxads.containerInit ||
-    function($container, emberCanonical, initParams) {
+    function ($container, emberCanonical, initParams) {
+
+		// ME - checking initParams
+    	$.each(initParams, function (key, value) {
+    		console.log(key + " " + value);
+    });
+
 
     // Unpack iframe
     function unpackFrame(initParams) {
       var containerClass,
           containerAttr;
 
-      containerClass = 'uxads-container uxads-container-' +
-        initParams.product + '-' + initParams.placement;
+      containerClass = 'uxads-container uxads-container-' + initParams.product + '-' + initParams.placement;
+
       containerAttr = {
         'class': containerClass,
         'id': 'uxads-container-' + uxads.ads.length,
-        'src': 'http://mps.nbcnews.com/request/component/nbcnews?name=uxads_contents.html&' + $.param(initParams)
+        //'src': './uxads_contents.html',
+        'src': './uxads_contents.html?' + $.param(initParams)
       };
 
       $container.attr(containerAttr).removeAttr('style');
@@ -23,6 +32,7 @@ var uxads = (function(uxads, $) {
         'initParams': initParams
       });
 
+      console.log("usads.ads is array: " + Array.isArray(uxads.ads));
       return;
     }
 
