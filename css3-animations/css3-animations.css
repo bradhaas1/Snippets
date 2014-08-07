@@ -1,0 +1,28 @@
+﻿body{
+	background: #323232;
+	display: -webkit-box;
+	-webkit-box-orient:horizontal;
+	-webkit-box-pack:center;
+	-webkkit-box-align:vertical;
+}
+
+h2{
+	text-align:center;
+}
+
+.box{
+	width:400px;
+	height:200px;
+	background:red;
+	cursor:pointer;
+	position:relative;
+	box-shadow: 3px 3px 4px rgba(0,0,0,.4),
+		-1px 0 4px rgba(0,0,0,.4);
+}
+.box > div{
+	position:absolute;
+	top:0;
+	left:0;
+	background:green;
+	
+}
