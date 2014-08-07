@@ -1,13 +1,18 @@
 ﻿(function () {
   var counter = 0;
-  var l = "json-callback-results.xml";
+  var f = "http://content.cim.comcast.net/cms/data/partner/nbc/rss/headlines.xml";
+  //var f = "json-callback-results.xml";
+  var c = "http://edp.nbcnews.com/rendering/apiproxy?url=";
+  var l = c + encodeURIComponent(f) + "&jsoncallback=?";
+  console.log(l);
+  //"http://edp.nbcnews.com/rendering/apiproxy?url=http://content.cim.comcast.net/cms/data/partner/nbc/rss/headlines.xml&jsoncallback=?"
 
   $.ajax({
     cache: false,
     url: l,
     dataType: "json",
-    error: function(){
-      console.log("Failed");
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert(errorThrown);
     },
     success: function (n) {
       var q = n, r = $.parseXML(q), m = $(r); m.find("item").each(function (s, t) {

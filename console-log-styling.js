@@ -1,0 +1,1 @@
+﻿console.log("%c" + adUrl, "background-color:#fde;");

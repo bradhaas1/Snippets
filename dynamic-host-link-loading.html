@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Xfinity</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script tytype="text/javascript">
+    (function(){
+
+      uxads = (window.uxads || {});
+
+      // create a global object to atacth method too
+      // test if method exists, if not define
+
+      if(!uxads.getMpsHost){
+
+        uxads.getMpsHost = function(){
+      
+      // define var for production host
+      // define isHostStage flag function
+      // if window.location.host 'sys10', 'localhost', or 'stage.mps' -> return true
+      // if not, return false
+
+          var mpsHost = 'http://mps.nbcnews.com';
+          var isHostStage = function(){
+            if (window.location.host.indexOf('sys10') === 0 
+                || window.location.host.indexOf('localhost') === 0
+                || window.location.host.indexOf('stage.mps') === 0){
+              return true;
+            }
+            return false;
+          }
+
+      // if isHostStage flag true
+      // mps host changed to 'stage.mps.nbcnews.com'
+
+          if (isHostStage()) {
+            mpsHost = 'http://stage.mps.nbcnews.com';
+          }
+
+      // if not, return mpsHost as originally defined
+          return mpsHost;
+        }
+      }
+
+    })();
+  </script>
+
+  <script tytype="text/javascript">
+      (function () {
+          var mpsHost = 'http://mps.nbcnews.com';
+          if (uxads && uxads.getMpsHost) {
+              mpsHost = uxads.getMpsHost();
+          }
+
+          // better, more specific var naming than 'adUrl'
+          var mpsComponentUrl = mpsHost + '/request/component/nbcnews?name=xfinity_sidebarflexone_frame.css';
+          
+          // close jQuery dom objects when creating them
+          var $link = $('<link rel="stylesheet" />');
+
+          $link.attr('href', mpsComponentUrl);
+          $('head').append($link);
+      })();
+  </script>
+
+  <script tytype="text/javascript">
+    (function () {
+      var feed = "http://content.cim.comcast.net/cms/data/partner/nbc/rss/headlines.xml";
+      var caption = "TOP STORIES ON XFINITY";
+      var proxy = "http://edp.nbcnews.com/rendering/apiproxy?url=";
+      var feedURL = proxy + encodeURIComponent(feed) + "&jsoncallback=?";
+      var $content = $("<div class='xfinity-wrapper'><div class='links-container'><span class='links-label'></span><ul id='xfin-feed'></ul></div></div>");
+      $content.find('span').text(caption);
+
+      $.ajax({
+        cache: false,
+        url: feedURL,
+        dataType: "json",
+        success: function (data) {
+          var xmlData = $.parseXML(data), $xmlData = $(xmlData);
+          var counter = 0;
+
+          $xmlData.find("item").each(function () {
+            if (counter < 5) {
+              var title = $(this).find("title").first().text();
+              var link = $(this).find("link").text();
+              var $item = $('<li><a target="_blank"></a></li>');
+              $item.find('a').attr('href', link).text(title);
+              $content.find('ul#xfin-feed').append($item);
+              counter++;
+            }
+          });
+
+          $("body").append($content);
+        }
+      });
+    })();
+  </script>
+</head>
+<body>
+</body>
+</html>
