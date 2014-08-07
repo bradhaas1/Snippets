@@ -12,6 +12,9 @@
         $container = $('#uxads-placeholder-init'),
         emberCanonical = '{{viewCanonicalUrl}}';
 
+
+  	// $.getScript : load a JavaScript file from the server using a GET HTTP request, then execute it.
+  	// jQuery.getScript( url [, success/callback ] )
     $container.removeAttr('id');
     $.getScript(loadScriptSrc, function() {
       uxads.containerInit($container, emberCanonical, initParams);
@@ -26,6 +29,8 @@
     document.getElementsByTagName('body')[0].appendChild(jqueryScript);
     return;
   }
+
+	// self executing, unneccessary call?
   init();
 }(document, {
   // Initialization parameters for UX Ads library

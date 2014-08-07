@@ -11,7 +11,8 @@ var uxads = (function(uxads, $) {
     });
 
 
-    // Unpack iframe
+    	// Unpack iframe
+			// returns $container, a jquery object  with class and src properties
     function unpackFrame(initParams) {
       var containerClass,
           containerAttr;
@@ -21,7 +22,6 @@ var uxads = (function(uxads, $) {
       containerAttr = {
         'class': containerClass,
         'id': 'uxads-container-' + uxads.ads.length,
-        //'src': './uxads_contents.html',
         'src': './uxads_contents.html?' + $.param(initParams)
       };
 
@@ -32,8 +32,7 @@ var uxads = (function(uxads, $) {
         'initParams': initParams
       });
 
-      console.log("usads.ads is array: " + Array.isArray(uxads.ads));
-      return;
+      //return;
     }
 
     // Augment initParams including canonical
@@ -47,7 +46,8 @@ var uxads = (function(uxads, $) {
       newCanonical = isEmberBound ? emberCanonical : window.location.href;
       initParams.canonical = initParams.canonical || newCanonical;
 
-      return unpackFrame(initParams);
+      unpackFrame(initParams);
+      //return 
     }
 
     // Validate initParams
